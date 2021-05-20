@@ -69,10 +69,12 @@ public class Window implements ActionListener
 		        }
 	    	}
 	    });
+	    closeButton.setFont(new Font("Lucida Console", Font.PLAIN, 14));
 	    
 	    JButton alertButton = new JButton("Alerter");  
 	    alertButton.setBounds(0, 25, 200, 25);
 	    alertButton.addActionListener(this);
+	    alertButton.setFont(new Font("Lucida Console", Font.PLAIN, 14));
 	    
 	    JButton pollButton = new JButton("Sonder Maintenant");
 	    pollButton.setBounds(0, 50, 200, 25);
@@ -84,9 +86,10 @@ public class Window implements ActionListener
 	            poller.start();
 	    	}
 	    });
+	    pollButton.setFont(new Font("Lucida Console", Font.PLAIN, 14));
 	    
 	    JLabel receiversListLabel = new JLabel();
-	    receiversListLabel.setBounds(210, 5, 1200, 800);
+	    receiversListLabel.setBounds(210, 5, 1200, 45);
 	    receiversListLabel.setVerticalAlignment(JLabel.NORTH);
 	    receiversListLabel.setForeground(new java.awt.Color(255, 255, 255));
 	    receiversListLabel.setFont(new Font("Lucida Console", Font.BOLD, 20));
@@ -95,7 +98,7 @@ public class Window implements ActionListener
 	    receivers = "<html><p color='00ffff'>Aucun receveur est connecté actuellement.</p></html>";
 	    
 	    receiversList = new JLabel();
-	    receiversList.setBounds(210, 50, 1200, 800);
+	    receiversList.setBounds(210, 50, 1200, 700);
 	    receiversList.setVerticalAlignment(JLabel.NORTH);
 	    receiversList.setForeground(new java.awt.Color(255, 255, 255));
 	    receiversList.setFont(new Font("Lucida Console", Font.PLAIN, 20));

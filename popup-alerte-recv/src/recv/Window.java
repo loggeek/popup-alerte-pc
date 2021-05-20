@@ -35,6 +35,7 @@ public class Window
 	    		frame.dispose();
 	    	}
 	    });
+	    button.setFont(new Font("Lucida Console", Font.PLAIN, 14));
 	    
 	    JLabel label = new JLabel (text);
 	    label.setBounds(170, 5, 1200, 800);
