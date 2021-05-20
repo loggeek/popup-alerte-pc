@@ -1,9 +1,8 @@
-
 # Documentation pour l'exploitant d'un serveur *popup-alerte-pc*
 
 ## 1.	Mise en place de l'exploitation
 L'archive `popup-alerte-expl.jar` fournie doit être placée dans le même dossier que le fichier de configuration `expl-config.properties`.
-Le fichier de configuration présente 6 paramètres&nbsp;:
+Le fichier de configuration présente 8 paramètres&nbsp;:
 
  - **accumulatePort** est le port utilisé pour l'initialisation des receveurs. Sa valeur par défaut est de 8080.
  -  **pollingPort** est le port utilisé pour vérifier si un receveur est connecté. Sa valeur par défaut est de 8081.
@@ -12,6 +11,7 @@ Le fichier de configuration présente 6 paramètres&nbsp;:
  - **pollerInterval** est l'intervalle entre deux sondages (vérification) automatiques, *en millisecondes*. Sa valeur par défaut est de 3600000 (une heure).
 > Le tiret bas/tiret du 8 peut être utilisé comme séparateur des milliers. Le point est utilisé en lieu et place de la virgule.
  - **alertText** est le texte affiché lorsqu'une alerte est affichée. **Le saut de ligne requiert le caractère \n.**
+ - **bgColor** et **textColor** commandent respectivement les couleurs par défaut d'arrière-plan et de texte de l'écran d'alerte.
 
 Pour lancer le serveur, le fichier jar peut être exécuté en double-cliquant dessus, avec un script externe *(solution recommandée si vous avez déjà des programmes de ce genre)*, ou en utilisant un script &nbsp;:
 
@@ -35,12 +35,15 @@ Lorsque ce programme sera lancé, cette fenêtre apparaîtra&nbsp;:
 - **Haut/Bas**&nbsp;: Ces boutons permettent de monter et descendre dans la liste des receveurs.
 
 Une zone de texte est présente à gauche, permettant d'afficher un écran d'alerte différent de celui par défaut.
+Deux autres zones permettent de paramétrer les couleurs d'arrière-plan et de texte de l'écran d'alerte, en format RGB.
+
 Les receveurs à droite peuvent présenter plusieurs couleurs suivant leur statut&nbsp;:
 
  - **Cyan**&nbsp;: Aucun receveur n'est connecté. C'est l'état par défaut du système.
  - **Vert**&nbsp;: Le receveur est connecté et sondé.
  - **Rouge**&nbsp;: Le receveur n'a pas encore été sondé ni alerté.
  - **Jaune**&nbsp;: Le receveur a été alerté, mais n'a pas encore affiché la fenêtre.
+
 ## 2.	Mise en place des receveurs
 Il existe plusieurs options quant à l'installation des receveurs.
 
@@ -58,7 +61,7 @@ Dans les deux cas, un fichier de désinstallation `unins000.exe` est chargé aut
 Il faut, comme pour l'exploitation, exporter manuellement les fichiers `popup-alerte-recv.jar` et `recv-config.properties` dans le **même** dossier. Si ils sont placés dans un dossier quelconque, les droits administrateur ne sont **pas** requis.
 <hr />
 
-Le fichier de configuration présente 5 paramètres, soit les 4 ports plus le paramètre **hostname**, qui indique le nom de l'hôte (l'exploitation). Il est mis à `localhost` par défaut.
+Le fichier de configuration présente 5 paramètres, soit les 4 ports, les couleurs par défaut et le paramètre **hostname**, qui indique le nom de l'hôte (l'exploitation). Il est mis à `localhost` par défaut.
 
 Le receveur  peut être lancé de la même manière que l'exploitant, avec les mêmes remarques.
 
