@@ -1,3 +1,4 @@
+
 # Documentation pour l'exploitant d'un serveur *popup-alerte-pc*
 
 ## 1.	Mise en place de l'exploitation
@@ -33,13 +34,13 @@ Lorsque ce programme sera lancé, cette fenêtre apparaîtra&nbsp;:
 - **Sonder maintenant**&nbsp;: Ce bouton force un sondage&nbsp;; si ce bouton n'est pas pressé, un sondage a lieu avec un intervalle spécifié dans la configuration *(voir supra)*.
 - **Haut/Bas**&nbsp;: Ces boutons permettent de monter et descendre dans la liste des receveurs.
 
+Une zone de texte est présente à gauche, permettant d'afficher un écran d'alerte différent de celui par défaut.
 Les receveurs à droite peuvent présenter plusieurs couleurs suivant leur statut&nbsp;:
 
  - **Cyan**&nbsp;: Aucun receveur n'est connecté. C'est l'état par défaut du système.
  - **Vert**&nbsp;: Le receveur est connecté et sondé.
  - **Rouge**&nbsp;: Le receveur n'a pas encore été sondé ni alerté.
  - **Jaune**&nbsp;: Le receveur a été alerté, mais n'a pas encore affiché la fenêtre.
-
 ## 2.	Mise en place des receveurs
 Il existe plusieurs options quant à l'installation des receveurs.
 
