@@ -30,14 +30,14 @@ public class AlerterThread extends Thread
 	    	resp = reader.readLine(); // Get Poller Message
 	    	logger.log(Level.INFO, "Exploitation message: " + resp);
 	    	
-	    	if (resp.equals("ALERT"))
+	    	if (resp.split("__", 2)[0].equals("ALERT"))
 	    	{
 	    		logger.log(Level.INFO, "Alerting");
 	        	writer.println("ALERTING");
 	        	
 	            logger.log(Level.INFO, "Creating window");
 	            
-	        	Window alertWindow = new Window(Main.text);
+	        	Window alertWindow = new Window(resp.split("__", 2)[1]);
 	        	alertWindow.show();
 	        	
 	        	writer.println("DISPLAYED");

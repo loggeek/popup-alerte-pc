@@ -40,11 +40,8 @@ public class AccumulatorThread extends Thread
         		respArray = resp.split("__", 2);
             	ip = respArray[0];
             	name = respArray[1];
-            	String text = "<html>"
-        	    		+ Main.alertText.replace("<", "&lt;").replace(">", "&gt;").replace("\\n", "<br />").replace("\n", "<br />")
-        	    		+ "</html>";
             	
-            	writer.println("VALID__" + text);
+            	writer.println("VALID");
             	if (!Poller.receivers.containsKey(ip))
             	{
             		Poller.receivers.put(ip, name);

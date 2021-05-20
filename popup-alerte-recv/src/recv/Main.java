@@ -21,7 +21,6 @@ public class Main
 	String ip;
 	String name;
 	static int accumulatePort, pollingPort, alertPort, stopPort;
-	static String text;
 	
     public static void main(String[] argv)
     {

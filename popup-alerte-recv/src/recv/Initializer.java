@@ -36,11 +36,9 @@ public class Initializer extends Thread
             String resp = new BufferedReader(new InputStreamReader(socket.getInputStream())).readLine(); // Gets server response
             
         	logger.log(Level.INFO, "Exploitation response: " + resp); // Displays server response
-        	if (resp.split("__")[0].equals("VALID"))
+        	if (resp.equals("VALID"))
         	{
-        		logger.log(Level.INFO, "Process validated; Initializing alert text");
-        		Main.text = resp.split("__", 2)[1];
-        		logger.log(Level.INFO, "Alert text initialized");
+        		logger.log(Level.INFO, "Process validated");
         	} else
         	{
         		logger.log(Level.SEVERE, "Fatal error: Initialization failed");

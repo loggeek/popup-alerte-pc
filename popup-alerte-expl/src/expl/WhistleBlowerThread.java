@@ -26,7 +26,11 @@ public class WhistleBlowerThread extends Thread
             OutputStream output = socket.getOutputStream();
             PrintWriter writer = new PrintWriter(output, true);
             
-        	String msg = "ALERT";
+        	String text = "<html>"
+    	    		+ Window.alertMessage.getText().replace("<", "&lt;").replace(">", "&gt;").replace("\\n", "<br />").replace("\n", "<br />")
+    	    		+ "</html>";
+            
+        	String msg = "ALERT__" + text;
             writer.println(msg); // Sends input to Server
             
             String resp = new BufferedReader(new InputStreamReader(socket.getInputStream())).readLine(); // Gets server response

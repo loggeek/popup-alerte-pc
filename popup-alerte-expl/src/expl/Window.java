@@ -15,6 +15,7 @@ public class Window implements ActionListener
 	private WhistleBlower whistleBlower;
 	private PollerRun poller;
 	static JLabel receiversList;
+	static JTextArea alertMessage;
 	JFrame frame;
 	
 	static int scroll = 0;
@@ -124,8 +125,18 @@ public class Window implements ActionListener
 	    		scroll++;
 	    		setReceiversList();
 	    	}
-	    	
 	    });
+	    
+	    JLabel alertMessageLabel = new JLabel();
+	    alertMessageLabel.setBounds(5, 225, 195, 25);
+	    alertMessageLabel.setVerticalAlignment(JLabel.NORTH);
+	    alertMessageLabel.setForeground(new java.awt.Color(255, 255, 255));
+	    alertMessageLabel.setFont(new Font("Lucida Console", Font.BOLD, 20));
+	    alertMessageLabel.setText("Message:");
+	    
+	    alertMessage = new JTextArea(Main.alertText);
+	    alertMessage.setBounds(0, 250, 200, 550);
+	    alertMessage.setFont(new Font("Lucida Console", Font.PLAIN, 14));
 	    
         frame.add(alertButton);
         frame.add(closeButton);
@@ -134,6 +145,8 @@ public class Window implements ActionListener
         frame.add(receiversList);
         frame.add(scrollUp);
         frame.add(scrollDown);
+        frame.add(alertMessageLabel);
+        frame.add(alertMessage);
 	    
         frame.pack();
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
