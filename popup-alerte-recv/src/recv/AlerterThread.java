@@ -37,7 +37,12 @@ public class AlerterThread extends Thread
 	        	
 	            logger.log(Level.INFO, "Creating window");
 	            
-	        	Window alertWindow = new Window(resp.split("__", 2)[1]);
+	        	Window alertWindow = new Window(
+	        			resp.split("__")[1],
+	        			resp.split("__")[2],
+	        			resp.split("__")[3],
+	        			logger
+	        		);
 	        	alertWindow.show();
 	        	
 	        	writer.println("DISPLAYED");

@@ -15,12 +15,13 @@ public class Main
 	final static int DEFAULT_STOP_PORT = 8083;
 	
 	final static String DEFAULT_EXPL_HOSTNAME = "localhost";
+	final static String DEFAULT_BG_COLOR = "0, 0, 255";
+	final static String DEFAULT_TEXT_COLOR = "255, 255, 255";
 	
 	Logger logger;
-	String hostname;
-	String ip;
-	String name;
+	String hostname, ip, name;
 	static int accumulatePort, pollingPort, alertPort, stopPort;
+	static String bgColor, textColor;
 	
     public static void main(String[] argv)
     {
@@ -84,6 +85,12 @@ public class Main
 	        		hostname = config.getProperty("hostname") != null
 	        				? config.getProperty("hostname")
 	        				: DEFAULT_EXPL_HOSTNAME;
+	        		bgColor = config.getProperty("bgColor") != null
+	        				? config.getProperty("bgColor")
+	        				: DEFAULT_BG_COLOR;
+	        		textColor = config.getProperty("textColor") != null
+	        				? config.getProperty("textColor")
+	        				: DEFAULT_TEXT_COLOR;
 	        		
 	        		logger.log(Level.INFO, "Config values initialized successfully");
 	        		
@@ -96,6 +103,8 @@ public class Main
                 	alertPort = DEFAULT_ALERT_PORT;
                 	stopPort = DEFAULT_STOP_PORT;
             		hostname = DEFAULT_EXPL_HOSTNAME;
+            		bgColor = DEFAULT_BG_COLOR;
+            		textColor = DEFAULT_TEXT_COLOR;
         		}
         	} else
         	{
@@ -106,6 +115,8 @@ public class Main
             	alertPort = DEFAULT_ALERT_PORT;
             	stopPort = DEFAULT_STOP_PORT;
         		hostname = DEFAULT_EXPL_HOSTNAME;
+        		bgColor = DEFAULT_BG_COLOR;
+        		textColor = DEFAULT_TEXT_COLOR;
         	}
         } catch (IOException ex)
         {
@@ -116,6 +127,8 @@ public class Main
         	alertPort = DEFAULT_ALERT_PORT;
         	stopPort = DEFAULT_STOP_PORT;
     		hostname = DEFAULT_EXPL_HOSTNAME;
+    		bgColor = DEFAULT_BG_COLOR;
+    		textColor = DEFAULT_TEXT_COLOR;
         }
     }
     

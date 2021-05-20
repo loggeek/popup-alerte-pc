@@ -2,6 +2,7 @@ package recv;
 
 import java.awt.event.*;
 import java.awt.Font;
+import java.util.logging.*;
 
 import javax.swing.*;
 
@@ -10,13 +11,7 @@ public class Window
 {
 	JFrame frame;
 	
-	public static void main(String[] argv) throws ArrayIndexOutOfBoundsException
-	{
-		Window alertWindow = new Window(argv[0]);
-		alertWindow.show();
-	}
-	
-	Window (String text)
+	Window (String text, String bgColor, String textColor, Logger logger)
     {
 		int textLength = text.split("<br />").length;
 		
@@ -26,7 +21,23 @@ public class Window
 		frame.setLocationByPlatform(true);
         frame.setAlwaysOnTop(true);
 			// CAUTION: setAlwaysOnTop=>true could lead to a soft-lock if the close button is not visible!
-		frame.getContentPane().setBackground(new java.awt.Color(0, 0, 255));
+        try
+        {
+			frame.getContentPane().setBackground(new java.awt.Color(
+					Integer.parseInt(bgColor.split(",")[0]),
+					Integer.parseInt(bgColor.split(",")[1]),
+					Integer.parseInt(bgColor.split(",")[2])
+				));
+        } catch (Exception ex)
+        {
+        	ex.printStackTrace();
+        	logger.log(Level.WARNING, "Invalid Background Color value given; default value used");
+			frame.getContentPane().setBackground(new java.awt.Color(
+					Integer.parseInt(Main.bgColor.split(",")[0]),
+					Integer.parseInt(Main.bgColor.split(",")[1]),
+					Integer.parseInt(Main.bgColor.split(",")[2])
+				));
+        }
 		
 	    JButton button = new JButton("J'ai compris");  
 	    button.setBounds(200, textLength * 40 + 40, 400, 40);
@@ -42,7 +53,22 @@ public class Window
 	    JLabel label = new JLabel (text);
 	    label.setBounds(170, 5, 1200, 800);
 	    label.setVerticalAlignment(JLabel.NORTH);
-	    label.setForeground(new java.awt.Color(255, 255, 255));
+	    try
+	    {
+	    label.setForeground(new java.awt.Color(
+				Integer.parseInt(textColor.split(",")[0]),
+				Integer.parseInt(textColor.split(",")[1]),
+				Integer.parseInt(textColor.split(",")[2])
+			));
+	    } catch (Exception ex)
+	    {
+	    	logger.log(Level.WARNING, "Invalid Text Color value given; default value used");
+			frame.getContentPane().setBackground(new java.awt.Color(
+					Integer.parseInt(Main.textColor.split(",")[0]),
+					Integer.parseInt(Main.textColor.split(",")[1]),
+					Integer.parseInt(Main.textColor.split(",")[2])
+				));
+	    }
 	    label.setFont(new Font("Lucida Console", Font.BOLD, 36));
 	    
 	    JLabel exclmark = new JLabel ("!");

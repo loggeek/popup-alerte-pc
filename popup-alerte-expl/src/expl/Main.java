@@ -15,11 +15,13 @@ public class Main
 	
 	final static long POLLER_DEFAULT_INTERVAL = 3600_000; // In milliseconds
 	final static String DEFAULT_ALERT_TEXT = "Alerte";
+	final static String DEFAULT_BG_COLOR = "0, 0, 255";
+	final static String DEFAULT_TEXT_COLOR = "255, 255, 255";
 	
 	Logger logger;
 	static int accumulatePort, pollingPort, alertPort, stopPort;
 	static long pollerInterval;
-	static String alertText;
+	static String alertText, bgColor, textColor;
 	
     public static void main(String[] argv)
     {
@@ -86,6 +88,12 @@ public class Main
 	        		alertText = config.getProperty("alertText") != null
 	        				? config.getProperty("alertText")
 	        				: DEFAULT_ALERT_TEXT;
+	        		bgColor = config.getProperty("bgColor") != null
+	        				? config.getProperty("bgColor")
+	        				: DEFAULT_BG_COLOR;
+	        		textColor = config.getProperty("textColor") != null
+	        				? config.getProperty("textColor")
+	        				: DEFAULT_TEXT_COLOR;
 	        		
 	        		logger.log(Level.INFO, "Config values initialized successfully");
         		} catch (NumberFormatException ex)
@@ -98,6 +106,8 @@ public class Main
                 	stopPort = DEFAULT_STOP_PORT;
             		pollerInterval = POLLER_DEFAULT_INTERVAL;
             		alertText = DEFAULT_ALERT_TEXT;
+            		bgColor = DEFAULT_BG_COLOR;
+            		textColor = DEFAULT_TEXT_COLOR;
         		}
         	} else
         	{
@@ -109,6 +119,8 @@ public class Main
             	stopPort = DEFAULT_STOP_PORT;
         		pollerInterval = POLLER_DEFAULT_INTERVAL;
         		alertText = DEFAULT_ALERT_TEXT;
+        		bgColor = DEFAULT_BG_COLOR;
+        		textColor = DEFAULT_TEXT_COLOR;
         	}
         } catch (IOException ex)
         {
@@ -120,6 +132,8 @@ public class Main
         	stopPort = DEFAULT_STOP_PORT;
     		pollerInterval = POLLER_DEFAULT_INTERVAL;
     		alertText = DEFAULT_ALERT_TEXT;
+    		bgColor = DEFAULT_BG_COLOR;
+    		textColor = DEFAULT_TEXT_COLOR;
         }
     }
     

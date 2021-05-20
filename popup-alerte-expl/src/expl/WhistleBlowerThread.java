@@ -30,7 +30,9 @@ public class WhistleBlowerThread extends Thread
     	    		+ Window.alertMessage.getText().replace("<", "&lt;").replace(">", "&gt;").replace("\\n", "<br />").replace("\n", "<br />")
     	    		+ "</html>";
             
-        	String msg = "ALERT__" + text;
+        	String msg = "ALERT__" + text +
+        					"__" + Window.alertBgColor.getText().replace(" ", "") +
+        					"__" + Window.alertTextColor.getText().replace(" ", "");
             writer.println(msg); // Sends input to Server
             
             String resp = new BufferedReader(new InputStreamReader(socket.getInputStream())).readLine(); // Gets server response

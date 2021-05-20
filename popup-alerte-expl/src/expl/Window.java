@@ -15,7 +15,7 @@ public class Window implements ActionListener
 	private WhistleBlower whistleBlower;
 	private PollerRun poller;
 	static JLabel receiversList;
-	static JTextArea alertMessage;
+	static JTextArea alertMessage, alertBgColor, alertTextColor;
 	JFrame frame;
 	
 	static int scroll = 0;
@@ -135,8 +135,30 @@ public class Window implements ActionListener
 	    alertMessageLabel.setText("Message:");
 	    
 	    alertMessage = new JTextArea(Main.alertText);
-	    alertMessage.setBounds(0, 250, 200, 550);
-	    alertMessage.setFont(new Font("Lucida Console", Font.PLAIN, 14));
+	    alertMessage.setBounds(0, 250, 200, 250);
+	    alertMessage.setFont(new Font("Lucida Console", Font.PLAIN, 16));
+	    
+	    JLabel alertBgColorLabel = new JLabel();
+	    alertBgColorLabel.setBounds(5, 505, 195, 25);
+	    alertBgColorLabel.setVerticalAlignment(JLabel.NORTH);
+	    alertBgColorLabel.setForeground(new java.awt.Color(255, 255, 255));
+	    alertBgColorLabel.setFont(new Font("Lucida Console", Font.BOLD, 20));
+	    alertBgColorLabel.setText("Arrière-plan:");
+	    
+	    alertBgColor = new JTextArea(Main.bgColor);
+	    alertBgColor.setBounds(0, 530, 200, 25);
+	    alertBgColor.setFont(new Font("Lucida Console", Font.PLAIN, 16));
+	    
+	    JLabel alertTextColorLabel = new JLabel();
+	    alertTextColorLabel.setBounds(5, 560, 195, 25);
+	    alertTextColorLabel.setVerticalAlignment(JLabel.NORTH);
+	    alertTextColorLabel.setForeground(new java.awt.Color(255, 255, 255));
+	    alertTextColorLabel.setFont(new Font("Lucida Console", Font.BOLD, 20));
+	    alertTextColorLabel.setText("Texte:");
+	    
+	    alertTextColor = new JTextArea(Main.textColor);
+	    alertTextColor.setBounds(0, 585, 200, 25);
+	    alertTextColor.setFont(new Font("Lucida Console", Font.PLAIN, 16));
 	    
         frame.add(alertButton);
         frame.add(closeButton);
@@ -147,6 +169,10 @@ public class Window implements ActionListener
         frame.add(scrollDown);
         frame.add(alertMessageLabel);
         frame.add(alertMessage);
+        frame.add(alertBgColorLabel);
+        frame.add(alertBgColor);
+        frame.add(alertTextColorLabel);
+        frame.add(alertTextColor);
 	    
         frame.pack();
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
