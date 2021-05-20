@@ -10,7 +10,7 @@ Le fichier de configuration présente 6 paramètres&nbsp;:
  -  **stopPort** est le port utilisé pour arrêter les receveurs. Sa valeur par défaut est de 8083.
  - **pollerInterval** est l'intervalle entre deux sondages (vérification) automatiques, *en millisecondes*. Sa valeur par défaut est de 3600000 (une heure).
 > Le tiret bas/tiret du 8 peut être utilisé comme séparateur des milliers. Le point est utilisé en lieu et place de la virgule.
- - **alertText** est le texte affiché lorsqu'une alerte est afficher. **Le saut de ligne requiert le caractère \n.**
+ - **alertText** est le texte affiché lorsqu'une alerte est affichée. **Le saut de ligne requiert le caractère \n.**
 
 Pour lancer le serveur, le fichier jar peut être exécuté en double-cliquant dessus, avec un script externe *(solution recommandée si vous avez déjà des programmes de ce genre)*, ou en utilisant un script &nbsp;:
 
@@ -22,13 +22,14 @@ Pour lancer le serveur, le fichier jar peut être exécuté en double-cliquant d
   > En effet, le programme ne parviendra pas à charger le fichier de configuration; en revanche, un raccourci peut être utilisé.
 
 Lorsque ce programme sera lancé, cette fenêtre apparaîtra&nbsp;:
-![ ](./control_panel.png "Panneau de contrôle")
+![ ](./alert_screen.png "Ecran d'alerte")
 
 À gauche figurent plusieurs boutons:
 
  - **Fermer**&nbsp;: Ce bouton ouvre une boîte de dialogue, proposant d'arrêter l'exploitation ou d'annuler. Si l'option &laquo;&nbsp;Yes&nbsp;&raquo; (Oui) est sélectionnée, les receveurs sont stoppés et le serveur est arrêté. Il provoque le même effet que la croix [X].
 > **Important**&nbsp;: Si l'exploitation est arrêtée d'une autre manière, les receveurs n'auront aucun moyen de connaître leur sort, et par conséquent continueront d'attendre pour rien.
-- **Alerter**&nbsp;: Comme son nom l'indique, ce bouton alerte tous les receveurs connectés.
+- **Alerter**&nbsp;: Comme son nom l'indique, ce bouton alerte tous les receveurs connectés, affichant cette fenêtre&nbsp;:
+
 - **Sonder maintenant**&nbsp;: Ce bouton force un sondage&nbsp;; si ce bouton n'est pas pressé, un sondage a lieu avec un intervalle spécifié dans la configuration *(voir supra)*.
 - **Haut/Bas**&nbsp;: Ces boutons permettent de monter et descendre dans la liste des receveurs.
 
