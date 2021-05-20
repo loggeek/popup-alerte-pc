@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Popup Alerte PC - Receiver"
-#define MyAppVersion "0.12.1"          
+#define MyAppVersion "0.12.2"          
 #define MyAppPublisher "loggeek"
 #define MyAppURL "https://github.com/loggeek/popup-alerte-pc"
 #define MyAppExeName "popup-alerte-recv.jar"
