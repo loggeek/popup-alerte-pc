@@ -31,9 +31,9 @@ public class Window
         	ex.printStackTrace();
         	logger.log(Level.WARNING, "Invalid Background Color value given; default value used");
 			frame.getContentPane().setBackground(new java.awt.Color(
-					Integer.parseInt(Main.bgColor.split(",")[0]),
-					Integer.parseInt(Main.bgColor.split(",")[1]),
-					Integer.parseInt(Main.bgColor.split(",")[2])
+					Integer.parseInt(Main.bgColor.replace(" ", "").split(",")[0]),
+					Integer.parseInt(Main.bgColor.replace(" ", "").split(",")[1]),
+					Integer.parseInt(Main.bgColor.replace(" ", "").split(",")[2])
 				));
         }
 		
@@ -62,9 +62,9 @@ public class Window
 	    {
 	    	logger.log(Level.WARNING, "Invalid Text Color value given; default value used");
 			frame.getContentPane().setBackground(new java.awt.Color(
-					Integer.parseInt(Main.textColor.split(",")[0]),
-					Integer.parseInt(Main.textColor.split(",")[1]),
-					Integer.parseInt(Main.textColor.split(",")[2])
+					Integer.parseInt(Main.textColor.replace(" ", "").split(",")[0]),
+					Integer.parseInt(Main.textColor.replace(" ", "").split(",")[1]),
+					Integer.parseInt(Main.textColor.replace(" ", "").split(",")[2])
 				));
 	    }
 	    label.setFont(new Font("Lucida Console", Font.BOLD, 36));

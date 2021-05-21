@@ -37,12 +37,24 @@ public class AlerterThread extends Thread
 	        	
 	            logger.log(Level.INFO, "Creating window");
 	            
-	        	Window alertWindow = new Window(
-	        			resp.split("__")[1],
-	        			resp.split("__")[2],
-	        			resp.split("__")[3],
-	        			logger
-	        		);
+	            Window alertWindow;
+	            try
+	            {
+		        	alertWindow = new Window(
+		        			resp.split("__")[1],
+		        			resp.split("__")[2],
+		        			resp.split("__")[3],
+		        			logger
+		        		);
+	            } catch (ArrayIndexOutOfBoundsException ex)
+	            {
+	            	alertWindow = new Window(
+	            			resp.split("__")[1],
+		        			"0, 0, 255",
+		        			"255, 255, 255",
+		        			logger
+		        		);
+	            }
 	        	alertWindow.show();
 	        	
 	        	writer.println("DISPLAYED");
