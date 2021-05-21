@@ -51,7 +51,7 @@ Les receveurs à droite peuvent présenter plusieurs couleurs suivant leur statu
 Il existe plusieurs options quant à l'installation des receveurs.
 
 ### Pour Windows uniquement&nbsp;:
- - Lancer directement le fichier d'installation situé dans le dossier `Output`, soit par le fichier `popup-alerte-recv-setup.exe`, ou en utilisant le fichier `setup-silent.bat`, qui enlève les fenêtres de confirmation. **Les droits administrateur sont requis.** Le fichier de configuration présente la configuration par défaut. Le programme est paramétré pour se lancer au démarrage&nbsp;; cela peut être modifié en pressant <kbd>![winlogo]</kbd>+<kbd>R</kbd> et en indiquant `shell:common startup` dans la boîte de dialogue&nbsp;; il suffit ensuite de supprimer le fichier raccourci `Popup Alerte PC - Receiver`. L'inconvénient de cette méthode et qu'elle requiert le reparamétrage manuel des fichiers de configuration.
+ - Lancer directement le fichier d'installation situé dans le dossier `Output`, soit par le fichier `popup-alerte-recv-setup.exe`, ou en utilisant le fichier `setup-silent.bat`, qui enlève les fenêtres de confirmation. **Les droits administrateur sont requis.** Le fichier de configuration présente la configuration par défaut. Le programme est paramétré pour se lancer au démarrage&nbsp;; cela peut être modifié en pressant <kbd>Windows</kbd>+<kbd>R</kbd> et en indiquant `shell:common startup` dans la boîte de dialogue&nbsp;; il suffit ensuite de supprimer le fichier raccourci `Popup Alerte PC - Receiver`. L'inconvénient de cette méthode et qu'elle requiert le reparamétrage manuel des fichiers de configuration.
  - Modifier le fichier `popup-alerte-recv-setup.iss` (requiert InnoSetup&nbsp;; il est possible de télécharger ce logiciel [ici](https://jrsoftware.org/isdl.php)). Cette option permet beaucoup plus de personnalisation, notamment&nbsp;:
 **Ligne 21**&nbsp;- `DefaultDirName` indique la localisation du dossier d'installation (par 		défaut `C:\Program Files\popup-alerte-pc`)&nbsp;;
 **Ligne 41**&nbsp;- Supprimer cette ligne désactive le démarrage automatique de l'application.
@@ -70,6 +70,3 @@ Le receveur  peut être lancé de la même manière que l'exploitant, avec les m
 
 ## 3. Autres remarques 
 Les logs se trouvent dans `%APPDATA%\popup-alerte-pc`.
-
-
-[winlogo]: http://i.stack.imgur.com/Rfuw7.png
