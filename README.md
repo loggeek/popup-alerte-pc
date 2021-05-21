@@ -1,8 +1,9 @@
+
 # Documentation pour l'exploitant d'un serveur *popup-alerte-pc*
 
 ## 1.	Mise en place de l'exploitation
 L'archive `popup-alerte-expl.jar` fournie doit être placée dans le même dossier que le fichier de configuration `expl-config.properties`.
-Le fichier de configuration présente 8 paramètres&nbsp;:
+Le fichier de configuration présente 11 paramètres&nbsp;:
 
  - **accumulatePort** est le port utilisé pour l'initialisation des receveurs. Sa valeur par défaut est de 8080.
  -  **pollingPort** est le port utilisé pour vérifier si un receveur est connecté. Sa valeur par défaut est de 8081.
@@ -10,7 +11,8 @@ Le fichier de configuration présente 8 paramètres&nbsp;:
  -  **stopPort** est le port utilisé pour arrêter les receveurs. Sa valeur par défaut est de 8083.
  - **pollerInterval** est l'intervalle entre deux sondages (vérification) automatiques, *en millisecondes*. Sa valeur par défaut est de 3600000 (une heure).
 > Le tiret bas/tiret du 8 peut être utilisé comme séparateur des milliers. Le point est utilisé en lieu et place de la virgule.
- - **alertText** est le texte affiché lorsqu'une alerte est affichée. **Le saut de ligne requiert le caractère \n.**
+ - **alertText** est le texte par affiché par défaut. **Le saut de ligne requiert le caractère \n.**
+ - **presetText** 1, 2 et 3 sont des textes personnalisés pouvant s'afficher à l'écran selon le choix de l'exploitant *(voir infra)*. Ils sont mis en forme de la même manière que alertText.
  - **bgColor** et **textColor** commandent respectivement les couleurs par défaut d'arrière-plan et de texte de l'écran d'alerte.
 
 Pour lancer le serveur, le fichier jar peut être exécuté en double-cliquant dessus, avec un script externe *(solution recommandée si vous avez déjà des programmes de ce genre)*, ou en utilisant un script &nbsp;:
@@ -23,18 +25,19 @@ Pour lancer le serveur, le fichier jar peut être exécuté en double-cliquant d
   > En effet, le programme ne parviendra pas à charger le fichier de configuration; en revanche, un raccourci peut être utilisé.
 
 Lorsque ce programme sera lancé, cette fenêtre apparaîtra&nbsp;:
-![ ](./alert_screen.png "Ecran d'alerte")
+![ ](./control_panel.png "Panneau de contrôle")
 
 À gauche figurent plusieurs boutons:
 
  - **Fermer**&nbsp;: Ce bouton ouvre une boîte de dialogue, proposant d'arrêter l'exploitation ou d'annuler. Si l'option &laquo;&nbsp;Yes&nbsp;&raquo; (Oui) est sélectionnée, les receveurs sont stoppés et le serveur est arrêté. Il provoque le même effet que la croix [X].
 > **Important**&nbsp;: Si l'exploitation est arrêtée d'une autre manière, les receveurs n'auront aucun moyen de connaître leur sort, et par conséquent continueront d'attendre pour rien.
-- **Alerter**&nbsp;: Comme son nom l'indique, ce bouton alerte tous les receveurs connectés, affichant cette fenêtre&nbsp;:
+- **Alerter**&nbsp;: Ce bouton crée une pop-up proposant d'utiliser le texte personnalisé ou les textes définis dans l'écran de configuration. Il alerte ensuite tous les receveurs connectés, affichant cette fenêtre&nbsp;:
+![ ](./alert_screen.png "Ecran d'alerte")
 
 - **Sonder maintenant**&nbsp;: Ce bouton force un sondage&nbsp;; si ce bouton n'est pas pressé, un sondage a lieu avec un intervalle spécifié dans la configuration *(voir supra)*.
 - **Haut/Bas**&nbsp;: Ces boutons permettent de monter et descendre dans la liste des receveurs.
 
-Une zone de texte est présente à gauche, permettant d'afficher un écran d'alerte différent de celui par défaut.
+Une zone de texte est présente à gauche, permettant d'afficher un écran d'alerte personnalisé.
 Deux autres zones permettent de paramétrer les couleurs d'arrière-plan et de texte de l'écran d'alerte, en format RGB.
 
 Les receveurs à droite peuvent présenter plusieurs couleurs suivant leur statut&nbsp;:
