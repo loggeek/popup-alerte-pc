@@ -40,7 +40,7 @@ public class Window
         }
 		
 	    JButton button = new JButton("J'ai compris");  
-	    button.setBounds(200, textLength * 40 + 40, 400, 40);
+	    button.setBounds(500, 500, 300, 60);
 	    button.addActionListener(new ActionListener()
 	    {
 	    	public void actionPerformed(ActionEvent e)
@@ -48,7 +48,7 @@ public class Window
 	    		frame.dispose();
 	    	}
 	    });
-	    button.setFont(new Font("Lucida Console", Font.PLAIN, 28));
+	    button.setFont(new Font("Lucida Console", Font.PLAIN, 36));
 	    
 	    JLabel label = new JLabel (text);
 	    label.setBounds(170, 5, 1200, 800);
