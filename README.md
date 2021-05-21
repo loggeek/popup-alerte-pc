@@ -25,14 +25,14 @@ Pour lancer le serveur, le fichier jar peut être exécuté en double-cliquant d
   > En effet, le programme ne parviendra pas à charger le fichier de configuration; en revanche, un raccourci peut être utilisé.
 
 Lorsque ce programme sera lancé, cette fenêtre apparaîtra&nbsp;:
-![ ](./control_panel.png "Panneau de contrôle")
+![ ](./Images/control_panel.png "Panneau de contrôle")
 
 À gauche figurent plusieurs boutons:
 
  - **Fermer**&nbsp;: Ce bouton ouvre une boîte de dialogue, proposant d'arrêter l'exploitation ou d'annuler. Si l'option &laquo;&nbsp;Yes&nbsp;&raquo; (Oui) est sélectionnée, les receveurs sont stoppés et le serveur est arrêté. Il provoque le même effet que la croix [X].
 > **Important**&nbsp;: Si l'exploitation est arrêtée d'une autre manière, les receveurs n'auront aucun moyen de connaître leur sort, et par conséquent continueront d'attendre pour rien.
 - **Alerter**&nbsp;: Ce bouton crée une pop-up proposant d'utiliser le texte personnalisé ou les textes définis dans l'écran de configuration. Il alerte ensuite tous les receveurs connectés, affichant cette fenêtre&nbsp;:
-![ ](./alert_screen.png "Ecran d'alerte")
+![ ](./Images/alert_screen.png "Ecran d'alerte")
 
 - **Sonder maintenant**&nbsp;: Ce bouton force un sondage&nbsp;; si ce bouton n'est pas pressé, un sondage a lieu avec un intervalle spécifié dans la configuration *(voir supra)*.
 - **Haut/Bas**&nbsp;: Ces boutons permettent de monter et descendre dans la liste des receveurs.
