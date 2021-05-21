@@ -6,12 +6,13 @@ import java.util.logging.*;
 
 public class WhistleBlowerThread extends Thread
 {
-	String ip, name;
+	String message, ip, name;
 	int port;
 	Logger logger;
 	
-	WhistleBlowerThread(String ip, String name, int port, Logger logger)
+	WhistleBlowerThread(String message, String ip, String name, int port, Logger logger)
 	{
+		this.message = message;
 		this.ip = ip;
 		this.name = name;
 		this.port = port;
@@ -27,7 +28,8 @@ public class WhistleBlowerThread extends Thread
             PrintWriter writer = new PrintWriter(output, true);
             
         	String text = "<html>"
-    	    		+ Window.alertMessage.getText().replace("<", "&lt;").replace(">", "&gt;").replace("\\n", "<br />").replace("\n", "<br />")
+    	    		+ message.replace("<", "&lt;").replace(">", "&gt;").replace("\\n", "<br />")
+    	    			.replace("\n", "<br />")
     	    		+ "</html>";
             
         	String msg = "ALERT__" + text +

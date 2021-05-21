@@ -13,8 +13,6 @@ public class Window
 	
 	Window (String text, String bgColor, String textColor, Logger logger)
     {
-		int textLength = text.split("<br />").length;
-		
         frame = new JFrame("Alerte");
 		frame.setLayout(null);
 		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);

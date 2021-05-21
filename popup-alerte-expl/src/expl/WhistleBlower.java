@@ -5,13 +5,15 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class WhistleBlower extends Thread
 {
+	String message;
 	int port;
 	Logger logger;
 	
 	private ConcurrentHashMap<String,String> receivers = new ConcurrentHashMap<String,String>();
 	
-	WhistleBlower(int port, Logger logger)
+	WhistleBlower(String message, int port, Logger logger)
 	{
+		this.message = message;
 		this.port = port;
 		this.logger = logger;
 	}
@@ -28,7 +30,7 @@ public class WhistleBlower extends Thread
         	logger.log(Level.INFO, "Alerting: " + receiver + "/" + receivers.get(receiver));
         	
         	WhistleBlowerThread whistleBlowerThread =
-        			new WhistleBlowerThread(receiver, receivers.get(receiver), port, logger);
+        			new WhistleBlowerThread(message, receiver, receivers.get(receiver), port, logger);
         	whistleBlowerThread.start();
         }
         logger.log(Level.INFO, "Done with alerting");

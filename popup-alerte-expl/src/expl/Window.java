@@ -185,8 +185,43 @@ public class Window implements ActionListener
 	
 	public void actionPerformed(ActionEvent e)
 	{
-        whistleBlower = new WhistleBlower(alertPort, logger);
-        whistleBlower.start();
+		Object[] options =
+		{
+			"Texte personnalisé",
+            "Texte n°1",
+            "Texte n°2",
+            "Texte n°3",
+            "Annuler"
+        };
+		
+        int alertOption = JOptionPane.showOptionDialog(frame,
+    		"Quel texte d'alerte?",
+    		"Quelle alerte?", 1,
+    		JOptionPane.INFORMATION_MESSAGE,
+    		null, options, null
+        );
+		
+        switch (alertOption)
+        {
+        	case 0:
+                whistleBlower = new WhistleBlower(alertMessage.getText(), alertPort, logger);
+                whistleBlower.start();
+                break;
+        	case 1:
+                whistleBlower = new WhistleBlower(Main.presetText1, alertPort, logger);
+                whistleBlower.start();
+                break;
+        	case 2:
+                whistleBlower = new WhistleBlower(Main.presetText2, alertPort, logger);
+                whistleBlower.start();
+                break;
+        	case 3:
+                whistleBlower = new WhistleBlower(Main.presetText3, alertPort, logger);
+                whistleBlower.start();
+                break;
+        	case 4:
+        		break;
+        }
 	}
 	
 	public void stop()

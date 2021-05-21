@@ -15,13 +15,17 @@ public class Main
 	
 	final static long POLLER_DEFAULT_INTERVAL = 3600_000; // In milliseconds
 	final static String DEFAULT_ALERT_TEXT = "Alerte";
+	final static String DEFAULT_PRESET_TEXT_1 = "Alerte 1";
+	final static String DEFAULT_PRESET_TEXT_2 = "Alerte 2";
+	final static String DEFAULT_PRESET_TEXT_3 = "Alerte 3";
+	
 	final static String DEFAULT_BG_COLOR = "0, 0, 255";
 	final static String DEFAULT_TEXT_COLOR = "255, 255, 255";
 	
 	Logger logger;
 	static int accumulatePort, pollingPort, alertPort, stopPort;
 	static long pollerInterval;
-	static String alertText, bgColor, textColor;
+	static String alertText, presetText1, presetText2, presetText3, bgColor, textColor;
 	
     public static void main(String[] argv)
     {
@@ -88,6 +92,15 @@ public class Main
 	        		alertText = config.getProperty("alertText") != null
 	        				? config.getProperty("alertText")
 	        				: DEFAULT_ALERT_TEXT;
+	        		presetText1 = config.getProperty("presetText1") != null
+	        				? config.getProperty("presetText1")
+	        				: DEFAULT_PRESET_TEXT_1;
+	        		presetText2 = config.getProperty("presetText2") != null
+	        				? config.getProperty("presetText2")
+	        				: DEFAULT_PRESET_TEXT_2;
+	        		presetText3 = config.getProperty("presetText3") != null
+	        				? config.getProperty("presetText3")
+	        				: DEFAULT_PRESET_TEXT_3;
 	        		bgColor = config.getProperty("bgColor") != null
 	        				? config.getProperty("bgColor")
 	        				: DEFAULT_BG_COLOR;
@@ -106,6 +119,9 @@ public class Main
                 	stopPort = DEFAULT_STOP_PORT;
             		pollerInterval = POLLER_DEFAULT_INTERVAL;
             		alertText = DEFAULT_ALERT_TEXT;
+            		presetText1 = DEFAULT_PRESET_TEXT_1;
+            		presetText2 = DEFAULT_PRESET_TEXT_2;
+            		presetText3 = DEFAULT_PRESET_TEXT_3;
             		bgColor = DEFAULT_BG_COLOR;
             		textColor = DEFAULT_TEXT_COLOR;
         		}
@@ -119,6 +135,9 @@ public class Main
             	stopPort = DEFAULT_STOP_PORT;
         		pollerInterval = POLLER_DEFAULT_INTERVAL;
         		alertText = DEFAULT_ALERT_TEXT;
+        		presetText1 = DEFAULT_PRESET_TEXT_1;
+        		presetText2 = DEFAULT_PRESET_TEXT_2;
+        		presetText3 = DEFAULT_PRESET_TEXT_3;
         		bgColor = DEFAULT_BG_COLOR;
         		textColor = DEFAULT_TEXT_COLOR;
         	}
@@ -132,6 +151,9 @@ public class Main
         	stopPort = DEFAULT_STOP_PORT;
     		pollerInterval = POLLER_DEFAULT_INTERVAL;
     		alertText = DEFAULT_ALERT_TEXT;
+    		presetText1 = DEFAULT_PRESET_TEXT_1;
+    		presetText2 = DEFAULT_PRESET_TEXT_2;
+    		presetText3 = DEFAULT_PRESET_TEXT_3;
     		bgColor = DEFAULT_BG_COLOR;
     		textColor = DEFAULT_TEXT_COLOR;
         }
