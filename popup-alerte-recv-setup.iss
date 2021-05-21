@@ -34,6 +34,9 @@ Name: "fr"; MessagesFile: "compiler:Languages\French.isl"
 [Files]
 Source: ".\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 Source: ".\recv-config.properties"; DestDir: "{app}"; Flags: ignoreversion
+Source: ".\README.md"; DestDir: "{app}"; Flags: ignoreversion
+Source: ".\Images\alert_screen.png"; DestDir: "{app}\Images"; Flags: ignoreversion
+Source: ".\Images\control_panel.png"; DestDir: "{app}\Images"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
