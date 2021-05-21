@@ -76,5 +76,6 @@ public class WhistleBlowerThread extends Thread
     		Window.removeReceiver(ip, name);
     		Poller.receivers.remove(ip);
         }
+		logger.log(Level.INFO, "Done with alerting " + ip + "/", name);
 	}
 }

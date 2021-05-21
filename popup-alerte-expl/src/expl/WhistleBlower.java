@@ -33,6 +33,5 @@ public class WhistleBlower extends Thread
         			new WhistleBlowerThread(message, receiver, receivers.get(receiver), port, logger);
         	whistleBlowerThread.start();
         }
-        logger.log(Level.INFO, "Done with alerting");
 	}
 }
