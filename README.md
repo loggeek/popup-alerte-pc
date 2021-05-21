@@ -64,7 +64,7 @@ Dans les deux cas, un fichier de désinstallation `unins000.exe` est chargé aut
 Il faut, comme pour l'exploitation, exporter manuellement les fichiers `popup-alerte-recv.jar` et `recv-config.properties` dans le **même** dossier. Si ils sont placés dans un dossier quelconque, les droits administrateur ne sont **pas** requis.
 <hr />
 
-Le fichier de configuration présente 5 paramètres, soit les 4 ports, les couleurs par défaut et le paramètre **hostname**, qui indique le nom de l'hôte (l'exploitation). Il est mis à `localhost` par défaut.
+Le fichier de configuration présente 5 paramètres, soit les 4 ports, les couleurs par défaut et le paramètre **host**, qui indique l'addresse IP **ou** nom de l'hôte de l'exploitation. Il est mis à `localhost` par défaut.
 
 Le receveur  peut être lancé de la même manière que l'exploitant, avec les mêmes remarques.
 
