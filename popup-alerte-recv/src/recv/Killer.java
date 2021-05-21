@@ -7,13 +7,11 @@ import java.util.logging.*;
 public class Killer extends Thread
 {
 	int port;
-	String hostname;
 	Logger logger;
 	
-	Killer(int port, String hostname, Logger logger)
+	Killer(int port, Logger logger)
 	{
 		this.port = port;
-		this.hostname = hostname;
 		this.logger = logger;
 	}
 	

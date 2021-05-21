@@ -7,6 +7,7 @@ import java.net.*;
 import java.nio.file.*;
 import java.time.LocalDateTime;
 
+
 public class Main
 {
 	final static int DEFAULT_ACCUMULATE_PORT = 8080;
@@ -14,12 +15,12 @@ public class Main
 	final static int DEFAULT_ALERT_PORT = 8082;
 	final static int DEFAULT_STOP_PORT = 8083;
 	
-	final static String DEFAULT_EXPL_HOSTNAME = "localhost";
 	final static String DEFAULT_BG_COLOR = "0, 0, 255";
 	final static String DEFAULT_TEXT_COLOR = "255, 255, 255";
 	
 	Logger logger;
-	String hostname, ip, name;
+	InetAddress host;
+	String ip, name;
 	static int accumulatePort, pollingPort, alertPort, stopPort;
 	static String bgColor, textColor;
 	
@@ -70,6 +71,15 @@ public class Main
         		
         		try
         		{
+        			host = InetAddress.getByName(config.getProperty("host").replace("_", ""));
+        		} catch (UnknownHostException ex)
+        		{
+        			logger.log(Level.SEVERE, "Unknown host: " + ex.getMessage());
+        			System.exit(-2);
+        		}
+        		
+        		try
+        		{
         			accumulatePort = config.getProperty("accumulatePort") != null
 	        				? Integer.parseInt(config.getProperty("accumulatePort").replace("_", ""))
 	        				: DEFAULT_ACCUMULATE_PORT;
@@ -82,9 +92,6 @@ public class Main
 	        		stopPort = config.getProperty("stopPort") != null
 	        				? Integer.parseInt(config.getProperty("stopPort").replace("_", ""))
 	        				: DEFAULT_STOP_PORT;
-	        		hostname = config.getProperty("hostname") != null
-	        				? config.getProperty("hostname")
-	        				: DEFAULT_EXPL_HOSTNAME;
 	        		bgColor = config.getProperty("bgColor") != null
 	        				? config.getProperty("bgColor")
 	        				: DEFAULT_BG_COLOR;
@@ -102,7 +109,6 @@ public class Main
                 	pollingPort = DEFAULT_POLLING_PORT;
                 	alertPort = DEFAULT_ALERT_PORT;
                 	stopPort = DEFAULT_STOP_PORT;
-            		hostname = DEFAULT_EXPL_HOSTNAME;
             		bgColor = DEFAULT_BG_COLOR;
             		textColor = DEFAULT_TEXT_COLOR;
         		}
@@ -114,7 +120,6 @@ public class Main
             	pollingPort = DEFAULT_POLLING_PORT;
             	alertPort = DEFAULT_ALERT_PORT;
             	stopPort = DEFAULT_STOP_PORT;
-        		hostname = DEFAULT_EXPL_HOSTNAME;
         		bgColor = DEFAULT_BG_COLOR;
         		textColor = DEFAULT_TEXT_COLOR;
         	}
@@ -126,7 +131,6 @@ public class Main
         	pollingPort = DEFAULT_POLLING_PORT;
         	alertPort = DEFAULT_ALERT_PORT;
         	stopPort = DEFAULT_STOP_PORT;
-    		hostname = DEFAULT_EXPL_HOSTNAME;
     		bgColor = DEFAULT_BG_COLOR;
     		textColor = DEFAULT_TEXT_COLOR;
         }
@@ -145,16 +149,16 @@ public class Main
             ex.printStackTrace();
             System.exit(-1);
         }
-        Initializer initializer = new Initializer(accumulatePort, hostname, ip, name, logger);
+        Initializer initializer = new Initializer(accumulatePort, host, ip, name, logger);
         initializer.start();
         
-        PollGetter pollGetter = new PollGetter(pollingPort, hostname, logger);
+        PollGetter pollGetter = new PollGetter(pollingPort, logger);
         pollGetter.start();
         
-        Alerter alerter = new Alerter(alertPort, hostname, logger);
+        Alerter alerter = new Alerter(alertPort, logger);
         alerter.start();
         
-        Killer killer = new Killer(stopPort, hostname, logger);
+        Killer killer = new Killer(stopPort, logger);
         killer.start();
     }
 }

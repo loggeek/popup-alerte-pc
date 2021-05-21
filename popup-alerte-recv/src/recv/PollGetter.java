@@ -7,13 +7,11 @@ import java.util.logging.*;
 public class PollGetter extends Thread
 {
 	int port;
-	String hostname;
 	Logger logger;
 	
-	PollGetter (int port, String hostname, Logger logger)
+	PollGetter (int port, Logger logger)
 	{
 		this.port = port;
-		this.hostname = hostname;
 		this.logger = logger;
 	}
 	

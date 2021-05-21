@@ -7,15 +7,15 @@ import java.util.logging.*;
 public class Initializer extends Thread
 {
 	int port;
-	String hostname;
+	InetAddress host;
 	String ip;
 	String name;
 	Logger logger;
 	
-	Initializer (int port, String hostname, String ip, String name, Logger logger)
+	Initializer (int port, InetAddress host, String ip, String name, Logger logger)
 	{
 		this.port = port;
-		this.hostname = hostname;
+		this.host = host;
 		this.ip = ip;
 		this.name = name;
 		this.logger = logger;
@@ -24,7 +24,7 @@ public class Initializer extends Thread
 	@Override
 	public void run()
 	{
-        try (Socket socket = new Socket(hostname, port))
+        try (Socket socket = new Socket(host, port))
         {
             OutputStream output = socket.getOutputStream();
             PrintWriter writer = new PrintWriter(output, true);

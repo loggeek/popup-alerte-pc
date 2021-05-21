@@ -1,20 +1,17 @@
 package recv;
 
-import java.io.IOException;
-import java.net.ServerSocket;
-import java.net.Socket;
+import java.io.*;
+import java.net.*;
 import java.util.logging.*;
 
 public class Alerter extends Thread
 {
 	int port;
-	String hostname;
 	Logger logger;
 	
-	Alerter (int port, String hostname, Logger logger)
+	Alerter (int port, Logger logger)
 	{
 		this.port = port;
-		this.hostname = hostname;
 		this.logger = logger;
 	}
 	
